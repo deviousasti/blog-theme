@@ -593,8 +593,8 @@ a {
     &,
     > * {
       .post-item-wrapper {
-        cursor: hand;
         cursor: pointer;
+
         .post-item {
           margin: 0 28px 0 35px;
           padding: 30px 0;
@@ -688,11 +688,15 @@ a {
           }
         }
 
-        transition: all 0.2s linear;
+        transition: all 0.1s linear;
         * {
-          transition: all 0.2s linear;
+          transition: all 0.05s linear;
         }
         &:not(.post-item-wrapper-no-hover):hover {
+          .post-item-title {
+            text-decoration: none !important;
+          }
+
           text-decoration: none;
           background: rgba(0, 0, 0, 0.03);
           .post-item-title {
