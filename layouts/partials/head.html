@@ -19,12 +19,6 @@
 {{ template "_internal/google_analytics.html" . }}
 {{ end }}
 
-<script src="{{"/vendor/js/jquery.min.js" | relLangURL}}" ></script>
-<script src="{{"/vendor/js/popper.min.js" | relLangURL}}" ></script>
-<script src="{{"/vendor/js/bootstrap.min.js" | relLangURL}}" ></script>
-<script src="{{"/vendor/js/smooth-scroll.polyfills.min.js" | relLangURL}}" ></script>
-<link type="text/css" rel="stylesheet" href="{{"/vendor/css/bootstrap.min.css" | relLangURL}}">
-<script src="{{"/vendor/js/vue.min.js" | relLangURL}}" ></script>
 
 {{ if .Site.Params.favicon }}
 <link rel="icon" href="{{ .Site.Params.favicon }}">
@@ -34,11 +28,8 @@
 {{ $styles := resources.Get "scss/journal.scss" | toCSS | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
 
-<script src="{{.Site.BaseURL}}/js/loadCSS.js"></script>
-<script src="{{.Site.BaseURL}}/js/table.js"></script>
-
 {{ if and (not (.Params.disableToC) ) (.IsPage) }}
-<script src="{{.Site.BaseURL}}/js/toc.js"></script>
+
 {{ else }}
 <style>
   .toc{
@@ -47,9 +38,9 @@
 </style>
 {{ end }}
 
-<script>
-    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");
-</script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons" />
+
 {{ if and (.Site.Params.enableGitalk) (.IsPage) }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
