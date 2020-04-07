@@ -1,9 +1,7 @@
-$().ready(function(){
-      var elems = $("table");
-      elems.each(function(idx){
-        $(this).addClass('table-striped');
-        $(this).addClass('table');
-        $(this).addClass('table-responsive');
-        $(this).addClass('table-hover');
-        });
+
+document.addEventListener("load", function(){
+      var elems = document.querySelectorAll("table");
+      Array.from(elems).forEach(function(elem){
+        elem.classList.add('table-striped', 'table', 'table-responsive', 'table-hover');
+      });
 });
