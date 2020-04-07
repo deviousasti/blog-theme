@@ -28,6 +28,7 @@ $toc-size: 16px;
 $dark-accent: darken($color-accent, 10%);
 $deep-dark-accent: darken($color-accent, 50%);
 $color-text: $deep-dark-accent;
+$color-text-on-dark: #eee;
 
 @if lightness($color-accent) <10% {
   $dark-accent: $color-accent;
@@ -136,7 +137,7 @@ code {
 
 pre {
   background: rgba(46,46,46, 1) !important;
-  color: rgba(255,255,255, 1);
+  color: $color-text-on-dark;
   padding: 12px 15px;
   border-radius: 5px;
   font-family: $mono-font-list;
@@ -146,6 +147,7 @@ pre {
   }
   code {
     padding: 0;
+    color: $color-text-on-dark;
   }
 }
 
