@@ -301,6 +301,11 @@ a {
 
 .single-column-header-container {
   display: none !important;
+
+  > a {
+    text-decoration: none;
+  }
+
   @media screen and (max-width: $single-column-max-width) {
     display: block !important;
     padding: 50px 20px 80px 20px;
@@ -492,7 +497,7 @@ a {
 .extra-container {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -10px;
   
   width: $extra-container-width;
   /*text-align: right;*/
@@ -523,7 +528,7 @@ a {
       text-decoration: none;
       width: $extra-container-width;
       padding: 15px 0;
-      font-size: 12px;
+      font-size: 18px;
       width: $extra-container-pagination-width;
       font-family: $mono-font-list;
     }
@@ -537,14 +542,20 @@ a {
       align-items: center;
       justify-items: center;
       width: $extra-container-pagination-width;
+      height: $extra-container-pagination-width;
       cursor: hand;
       cursor: pointer;
       text-decoration: none;
       padding: 15px 0;
+      border-radius: 50%;
       :not(.pagination-action-icon) {
         transition: all 0.2s linear;
         font-size: 13px;
         font-family: $mono-font-list;
+      }
+
+      &:hover {
+        background-color: #eeeeee;
       }
 
       .pagination-action-icon {
@@ -1024,6 +1035,7 @@ a {
     &:not(.index-page) {
       margin-top: 15px;
     }
+
     .pagination-indicator {
       display: flex;
       flex-direction: column;
@@ -1033,9 +1045,10 @@ a {
       justify-items: center;
       width: $extra-container-width;
       padding: 15px 0;
-      font-size: 12px;
+      font-size: 16px;
       font-family: $mono-font-list;
     }
+
     .pagination-action {
       display: flex;
       flex-direction: column;
