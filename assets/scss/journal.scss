@@ -29,6 +29,7 @@ $toc-size: 16px;
 $dark-accent: darken($color-accent, 10%);
 $deep-dark-accent: darken($color-accent, 50%);
 $color-text: $deep-dark-accent;
+$color-text-on-dark: #eee;
 
 @if lightness($color-accent) <20% {
   $dark-accent: $color-accent;
@@ -128,7 +129,7 @@ button {
 }
 
 code {
-  color: $dark-accent;
+  color: $color-accent;
   background: rgba($color-accent, 0.07) !important;
   padding: 2px 5px;
   border-radius: 3px;
@@ -136,17 +137,21 @@ code {
 }
 
 pre {
-  background: rgba(46,46,46, 1) !important;
-  color: rgba(255,255,255, 1);
+  //background: rgb(231, 228, 221) !important;
+  background: rgb(37, 37, 37) !important;
+  //color: $color-text;
   padding: 12px 15px;
   border-radius: 5px;
   font-family: $mono-font-list;
+  overflow-x: auto;
+
   * {
     background: none !important;
     font-family: $mono-font-list !important;
   }
   code {
     padding: 0;
+    color: $color-text-on-dark;
   }
 }
 
@@ -314,6 +319,11 @@ a {
 
 .single-column-header-container {
   display: none !important;
+
+  > a {
+    text-decoration: none;
+  }
+
   @media screen and (max-width: $single-column-max-width) {
     display: block !important;
     padding: 50px 20px 80px 20px;
@@ -434,6 +444,7 @@ a {
     padding: 30px 28px 30px 20px;
     cursor: hand;
     cursor: pointer;
+    user-select: none;
     margin-bottom: 10px;
     transition: all 0.2s linear;
     color: $deep-dark-accent;
@@ -504,7 +515,7 @@ a {
 .extra-container {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -10px;
   
   width: $extra-container-width;
   /*text-align: right;*/
@@ -520,9 +531,11 @@ a {
     bottom: 0;
     display: flex;
     flex-direction: column;
+    
     > :not(:last-child) {
       // border-bottom: 1px solid rgba(128, 128, 128, 0.12);
     }
+
     .pagination-indicator {
       display: flex;
       flex-direction: column;
@@ -530,40 +543,45 @@ a {
       justify-content: center;
       align-items: center;
       justify-items: center;
+      text-decoration: none;
       width: $extra-container-width;
       padding: 15px 0;
-      font-size: 12px;
+      font-size: 18px;
       width: $extra-container-pagination-width;
       font-family: $mono-font-list;
     }
+
     .pagination-action {
       display: flex;
+      user-select: none;
       flex-direction: column;
       align-content: center;
       justify-content: center;
       align-items: center;
       justify-items: center;
       width: $extra-container-pagination-width;
+      height: $extra-container-pagination-width;
       cursor: hand;
       cursor: pointer;
+      text-decoration: none;
       padding: 15px 0;
+      border-radius: 50%;
       :not(.pagination-action-icon) {
         transition: all 0.2s linear;
         font-size: 13px;
         font-family: $mono-font-list;
       }
+
+      &:hover {
+        background-color: #eeeeee;
+      }
+
       .pagination-action-icon {
         // margin-right: 4px;
+        
       }
-      * {
-        transition: all 0.3s linear;
-      }
-      &:hover {
-        text-decoration: none;
-        * {
-          color: $dark-accent;
-        }
-      }
+
+      
     }
   }
   @media screen and (max-width: $single-column-max-width) {
@@ -611,8 +629,8 @@ a {
     &,
     > * {
       .post-item-wrapper {
-        cursor: hand;
         cursor: pointer;
+
         .post-item {
           margin: 0 28px 0 35px;
           padding: 30px 0;
@@ -706,11 +724,15 @@ a {
           }
         }
 
-        //transition: all 0.2s linear;
+        transition: all 0.1s linear;
         * {
-          transition: all 0.2s linear;
+          transition: all 0.05s linear;
         }
         &:not(.post-item-wrapper-no-hover):hover {
+          .post-item-title {
+            text-decoration: none !important;
+          }
+
           text-decoration: none;
           background: rgba(0, 0, 0, 0.03);
           .post-item-title {
@@ -813,19 +835,24 @@ a {
           font-size: $post-subtitle-size;
           line-height: 1.2em;
           width: 80%;
-          opacity: 0.6;
+          opacity: 0.70;
           padding: 0px 0 8px 0;
         }
 
         .post-meta {
           margin: 0;
-          &,
-          * {
-            font-size: 16px;
-          }
+          font-size: $post-meta-size;
+          
           .material-icons {
+            font-size: 16px;
             vertical-align: middle;
             margin-bottom: 3px;
+            opacity: 0.9;
+          }
+
+          a {
+            text-decoration: none;
+            font-size: $post-meta-size;
           }
 
           @media screen and (max-width: $single-column-max-width) {
@@ -912,6 +939,10 @@ a {
       display: flex;
       justify-content: space-between;
 
+      > a {
+        text-decoration: none;
+      }
+
       .newer-posts {
         padding-right: 5px;
         text-align: left;
@@ -983,9 +1014,9 @@ a {
   
   a {
     color: $color-text;
+    text-decoration: none;
     &:hover {
-      color: $color-accent !important;
-      text-decoration: none;
+      color: $color-accent !important;      
     }
   }
 
@@ -1024,6 +1055,7 @@ a {
     &:not(.index-page) {
       margin-top: 15px;
     }
+
     .pagination-indicator {
       display: flex;
       flex-direction: column;
@@ -1033,9 +1065,10 @@ a {
       justify-items: center;
       width: $extra-container-width;
       padding: 15px 0;
-      font-size: 12px;
+      font-size: 16px;
       font-family: $mono-font-list;
     }
+
     .pagination-action {
       display: flex;
       flex-direction: column;
@@ -1043,6 +1076,7 @@ a {
       justify-content: center;
       align-items: center;
       justify-items: center;
+      text-decoration: none;
       width: $extra-container-pagination-width;
       cursor: hand;
       cursor: pointer;
@@ -1068,6 +1102,10 @@ a {
   }
 }
 
+figure {
+  margin: 0;
+}
+
 .year {
   color: $dark-accent;
 }
@@ -1075,4 +1113,11 @@ a {
 mjx-container
 {
   overflow-y: hidden !important;
+}
+
+hr {
+  background-color: #eeeeee;
+  height: 1px;
+  border: none;
+  margin: 0 -35px;
 }
