@@ -96,7 +96,7 @@ app = new Vue({
     }
 });
 
-new SmoothScroll('a#globalBackToTop');
+//new SmoothScroll('a#globalBackToTop');
 
 Vue.component('parent',{
     props:['name','type'],

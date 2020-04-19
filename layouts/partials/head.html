@@ -33,13 +33,7 @@
 <link rel="stylesheet" href="{{ $darkmode.Permalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen">
 {{ end }}
 
-<script src="{{.Site.BaseURL}}/js/loadCSS.js"></script>
-<script>
-  loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");
-</script>
-
 <script src="{{"/vendor/js/vue.min.js" | relLangURL}}" ></script>
-<script src="{{.Site.BaseURL}}/js/table.js"></script>
 
 {{ if .Params.enableMathJax }}
   {{ partial "mathjax.html" . }}
@@ -55,10 +49,7 @@
 </style>
 {{ end }}
 
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons" />
-<script src="{{"/vendor/js/popper.min.js" | relLangURL}}" ></script>
-<script src="{{"/vendor/js/smooth-scroll.polyfills.min.js" | relLangURL}}" ></script>
 
 {{ if and (.Site.Params.enableGitalk) (.IsPage) }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
