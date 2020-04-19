@@ -15,9 +15,6 @@
                             <div class="post-item-summary">
                                 {{.Description}}
                             </div>
-                            <div class="post-item-meta">
-                                {{ .PublishDate.Format "2006-01-02" }}
-                            </div>
                         </div>
                         {{ $featured_image := .Params.featured_image }}
                         {{ if $featured_image }}
