@@ -226,6 +226,7 @@ a {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 // dirty hack for livere
@@ -375,6 +376,7 @@ a {
         justify-items: center;
         justify-content: center;
         flex-direction: column;
+        font-family: $sans-preferred-font-list;
         $drawer-menu-item-active-background-alpha: 0.1;
         $drawer-menu-item-active-color-darken: 30%;
         .drawer-menu-item {
@@ -406,6 +408,12 @@ a {
             );
             color: darken($color-accent, $drawer-menu-item-active-color-darken);
           }
+        }
+
+        .toc {
+          padding-left: 20px;
+          padding-right: 10px;
+          margin-top: 0;
         }
       }
     }
