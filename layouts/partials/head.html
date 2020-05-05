@@ -6,10 +6,11 @@
 <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerification }}">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<meta name="description" content="{{ .Params.description }}">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="{{ .Params.description }}">
+<meta name="title" property="og:title" content="{{.Title}}">
+<meta name="image" property="og:image" content="{{ .Params.featured_image | relLangURL }}">
+<meta name="description" property="og:description" content="{{ .Params.description }}">
 <meta name="keywords" content="{{ .Params.tags }}">
 <meta name="author" content="{{ .Param "author"  }}"> 
 
